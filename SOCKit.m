@@ -394,6 +394,9 @@ NSString* kTemporaryBackslashToken = @"/backslash/";
   if (isInitializer) {
     object = [[object alloc] autorelease];
   }
+  
+  if (!object)
+    return nil;
 
   NSArray* values = nil;
   BOOL succeeded = [self gatherParameterValues:&values fromString:sourceString];
