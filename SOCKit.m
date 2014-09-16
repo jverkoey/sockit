@@ -401,7 +401,6 @@ NSString* kTemporaryBackslashToken = @"/backslash/";
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
 - (NSDictionary *)parameterDictionaryFromSourceString:(NSString *)sourceString {
-  NSMutableDictionary* kvs = [[NSMutableDictionary alloc] initWithCapacity:[_parameters count]];
 
   NSArray* values = nil;
   BOOL succeeded = [self gatherParameterValues:&values fromString:sourceString];
@@ -410,6 +409,8 @@ NSString* kTemporaryBackslashToken = @"/backslash/";
   NSDictionary* result = nil;
 
   if (succeeded) {
+    NSMutableDictionary* kvs = [[NSMutableDictionary alloc] initWithCapacity:[_parameters count]];
+
     for (NSInteger ix = 0; ix < [values count]; ++ix) {
       SOCParameter* parameter = [_parameters objectAtIndex:ix];
       id value = [values objectAtIndex:ix];
