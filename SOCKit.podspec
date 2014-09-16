@@ -1,10 +1,10 @@
 Pod::Spec.new do |s|
   s.name      = "SOCKit"
-  s.version   = "1.0"
+  s.version   = "1.0.1"
   s.summary   = "String <-> Object Coder for Objective-C."
   s.homepage  = "http://github.com/jverkoey/SOCKit"
   s.author    = { "Jeff Verkoeyen" => "jverkoey@gmail.com" }
-  s.source    = { :git => "https://github.com/jverkoey/sockit.git", :tag => "1.0" }
+  s.source    = { :git => "https://github.com/jverkoey/sockit.git", :tag => "1.0.1" }
 
   # TODO uncomment when CocoaPods 0.6 is released
   # s.license  = { :type => 'Apache License Version 2.0', :file => 'LICENSE' }
