@@ -172,6 +172,7 @@ NSString* kTemporaryBackslashToken = @"/backslash/";
     }
   }
 
+#if !defined(NS_BLOCK_ASSERTIONS)
   // This is an outbound pattern.
   if ([parameters count] > 0) {
     BOOL lastWasParameter = NO;
@@ -185,6 +186,7 @@ NSString* kTemporaryBackslashToken = @"/backslash/";
       }
     }
   }
+#endif
 
   [_tokens release];
   _tokens = [tokens copy];
