@@ -331,8 +331,12 @@ NSString* kTemporaryBackslashToken = @"/backslash/";
   BOOL succeeded = [self gatherParameterValues:&values fromString:sourceString];
   NSAssert(succeeded, @"The pattern can't be used with this string.");
   
-  id returnValue = nil;
-
+#if __has_feature(objc_arc)
+    id __autoreleasing returnValue = nil;
+#else
+    id returnValue = nil;
+#endif
+  
   if (succeeded) {
     NSMethodSignature* sig = [object methodSignatureForSelector:selector];
     NSAssert(nil != sig, @"%@ does not respond to selector: '%@'", object, NSStringFromSelector(selector));
