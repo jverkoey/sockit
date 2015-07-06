@@ -71,10 +71,13 @@ NSString* kTemporaryBackslashToken = @"/backslash/";
 #pragma mark - Pattern Compilation
 
 - (NSCharacterSet *)nonParameterCharacterSet {
-  NSMutableCharacterSet* parameterCharacterSet = [NSMutableCharacterSet alphanumericCharacterSet];
-  [parameterCharacterSet addCharactersInString:@".@_"];
-  NSCharacterSet* nonParameterCharacterSet = [parameterCharacterSet invertedSet];
-  return nonParameterCharacterSet;
+  static NSCharacterSet* staticNonParameterCharacterSet = nil;
+  if (staticNonParameterCharacterSet == nil) {
+    NSMutableCharacterSet* parameterCharacterSet = [NSMutableCharacterSet alphanumericCharacterSet];
+    [parameterCharacterSet addCharactersInString:@".@_"];
+    staticNonParameterCharacterSet = [parameterCharacterSet invertedSet];
+  }
+  return staticNonParameterCharacterSet;
 }
 
 - (void)_compilePattern {
